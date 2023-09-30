@@ -16,25 +16,48 @@ class Cursor {
 
   resetBackgroundColor() {
     Screen.setBackgroundColor(this.row, this.col, this.gridColor);
+    Screen.render();
   }
 
   setBackgroundColor() {
     Screen.setBackgroundColor(this.row, this.col, this.cursorColor);
+    Screen.render();
+    Screen.printCommands();
   }
 
-  up() {
+  up = () => {
+  this.resetBackgroundColor();
+  if (this.row !== 0) {
+    this.row -= 1
+  }
+  this.setBackgroundColor();
     // Move cursor up
   }
 
-  down() {
+  down = () => {
+    this.resetBackgroundColor();
+    if (this.row !== 2) {
+      this.row += 1
+    }
+    this.setBackgroundColor();
     // Move cursor down
   }
 
-  left() {
+  left = () => {
+    this.resetBackgroundColor();
+    if(this.col !== 2) {
+      this.col += 1
+    }
+    this.setBackgroundColor();
     // Move cursor left
   }
 
-  right() {
+  right = () => {
+    this.resetBackgroundColor();
+    if(this.col !== 2) {
+      this.col += 1
+    }
+    this.setBackgroundColor();
     // Move cursor right
   }
 
